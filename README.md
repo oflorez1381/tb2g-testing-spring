@@ -15,7 +15,7 @@ using a traditional 3-layer architecture without Spring Boot.
 ### Running Locally
 After cloning this repo, from the project root run:
 ```text
-./mvnw jetty:run-war
+./mvnw -Djetty.port=8090 jetty:run-war
 ```
 
 ## Support
