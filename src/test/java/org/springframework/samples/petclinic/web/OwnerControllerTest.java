@@ -72,7 +72,7 @@ class OwnerControllerTest {
     @Test
     void returnListOfOwnersTest() throws Exception {
 
-        given(clinicService.findOwnerByLastName("")).willReturn(Lists.newArrayList(new Owner(),new Owner()));
+        given(clinicService.findOwnerByLastName("")).willReturn(Lists.newArrayList(new Owner(), new Owner()));
 
         mockMvc.perform(get("/owners"))
                 .andExpect(status().isOk())
@@ -111,5 +111,18 @@ class OwnerControllerTest {
                 .param("city", "Key West")
                 .param("telephone", "3151231234"))
                 .andExpect(status().is3xxRedirection());
+    }
+
+    @Test
+    void newOwnerPostNotValidTest() throws Exception {
+        mockMvc.perform(post("/owners/new")
+                .param("firstName", "Jimmy")
+                .param("lastName", "Buffett")
+                .param("city", "Key West"))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeHasErrors("owner"))
+                .andExpect(model().attributeHasFieldErrors("owner", "address"))
+                .andExpect(model().attributeHasFieldErrors("owner", "telephone"))
+                .andExpect(view().name("owners/createOrUpdateOwnerForm"));
     }
 }
