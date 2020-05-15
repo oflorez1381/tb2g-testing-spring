@@ -1,4 +1,3 @@
-[![CircleCI](https://circleci.com/gh/oflorez1381/testing-java-junit5.svg?style=svg)](https://circleci.com/gh/oflorez1381/testing-java-junit5)
 # Spring Pet Clinic 
 
 All source code examples in the repository are for my [Online Course - Testing Spring Beginner to Guru](https://www.udemy.com/testing-spring-boot-beginner-to-guru/?couponCode=GITHUB_REPO)
